@@ -1,0 +1,114 @@
+[
+  {
+    "faculty_id": 0,
+    "faculty_initials": "FASILKOM",
+    "faculty_name": "Fakultas Ilmu Komputer",
+    "display_order": 0,
+    "active": true
+  },
+  {
+    "faculty_id": 1,
+    "faculty_initials": "FEB",
+    "faculty_name": "Fakultas Ekonomi dan Bisnis",
+    "display_order": 1,
+    "active": true
+  },
+  {
+    "faculty_id": 2,
+    "faculty_initials": "FF",
+    "faculty_name": "Fakultas Farmasi",
+    "display_order": 2,
+    "active": true
+  },
+  {
+    "faculty_id": 3,
+    "faculty_initials": "FH",
+    "faculty_name": "Fakultas Hukum",
+    "display_order": 3,
+    "active": true
+  },
+  {
+    "faculty_id": 4,
+    "faculty_initials": "FIA",
+    "faculty_name": "Fakultas Ilmu Administrasi",
+    "display_order": 4,
+    "active": true
+  },
+  {
+    "faculty_id": 5,
+    "faculty_initials": "FIB",
+    "faculty_name": "Fakultas Ilmu Pengetahuan Budaya",
+    "display_order": 5,
+    "active": true
+  },
+  {
+    "faculty_id": 6,
+    "faculty_initials": "FIK",
+    "faculty_name": "Fakultas Ilmu Keperawatan",
+    "display_order": 6,
+    "active": true
+  },
+  {
+    "faculty_id": 7,
+    "faculty_initials": "FISIP",
+    "faculty_name": "Fakultas Ilmu Sosial dan Ilmu Politik",
+    "display_order": 7,
+    "active": true
+  },
+  {
+    "faculty_id": 8,
+    "faculty_initials": "FK",
+    "faculty_name": "Fakultas Kedokteran",
+    "display_order": 8,
+    "active": true
+  },
+  {
+    "faculty_id": 9,
+    "faculty_initials": "FKG",
+    "faculty_name": "Fakultas Kedokteran Gigi",
+    "display_order": 9,
+    "active": true
+  },
+  {
+    "faculty_id": 10,
+    "faculty_initials": "FKM",
+    "faculty_name": "Fakultas Kesehatan Masyarakat",
+    "display_order": 10,
+    "active": true
+  },
+  {
+    "faculty_id": 11,
+    "faculty_initials": "FMIPA",
+    "faculty_name": "Fakultas Matematika dan Ilmu Pengetahuan Alam",
+    "display_order": 11,
+    "active": true
+  },
+  {
+    "faculty_id": 12,
+    "faculty_initials": "FPSIKOLOGI",
+    "faculty_name": "Fakultas Psikologi",
+    "display_order": 12,
+    "active": true
+  },
+  {
+    "faculty_id": 13,
+    "faculty_initials": "FT",
+    "faculty_name": "Fakultas Teknik",
+    "display_order": 13,
+    "active": true
+  },
+  {
+    "faculty_id": 14,
+    "faculty_initials": "SIL",
+    "faculty_name": "Sekolah Ilmu Lingkungan",
+    "display_order": 14,
+    "active": true
+  },
+  {
+    "faculty_id": 15,
+    "faculty_initials": "VOKASI",
+    "faculty_name": "Program Pendidikan Vokasi",
+    "display_order": 15,
+    "active": true
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "total_records": 909,
+  "unique_contents": 757,
+  "unique_accounts": 542,
+  "unique_faculties": 16,
+  "total_engagement": 3803599532.0,
+  "total_reach": 1276474.6435581737,
+  "total_impression": 184003.0,
+  "sentiment": {
+    "pos": 625,
+    "net": 276,
+    "neg": 8
+  },
+  "faculty_mentions": {
+    "FIB": 217,
+    "FEB": 195,
+    "FH": 122,
+    "FK": 85,
+    "FISIP": 80,
+    "FF": 51,
+    "FT": 26,
+    "VOKASI": 24,
+    "FASILKOM": 23,
+    "FIA": 23,
+    "FPSIKOLOGI": 15,
+    "FKM": 14,
+    "FIK": 12,
+    "SIL": 8,
+    "FMIPA": 7,
+    "FKG": 7
+  },
+  "shared_account_edges": 746,
+  "shared_link_edges": 849
+}

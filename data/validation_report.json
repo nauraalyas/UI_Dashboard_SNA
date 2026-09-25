@@ -1,0 +1,13 @@
+{
+  "raw_rows": 909,
+  "normalized_rows": 909,
+  "deduped_rows": 909,
+  "duplicate_rows_removed": 0,
+  "missing_faculty_rows": 0,
+  "missing_account_rows": 0,
+  "missing_link_rows": 0,
+  "invalid_date_rows": 0,
+  "unique_faculties_mapped": 16,
+  "unique_accounts": 542,
+  "unique_contents": 757
+}

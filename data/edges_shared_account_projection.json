@@ -1,0 +1,632 @@
+[
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FEB",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FF",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FH",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FIA",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FIB",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FASILKOM",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FF",
+    "relation_type": "shared_account_projection",
+    "weight": 8,
+    "shared_items": 8
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FH",
+    "relation_type": "shared_account_projection",
+    "weight": 23,
+    "shared_items": 23
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FIA",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FIB",
+    "relation_type": "shared_account_projection",
+    "weight": 24,
+    "shared_items": 24
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 17,
+    "shared_items": 17
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 16,
+    "shared_items": 16
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_SIL",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FEB",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FH",
+    "relation_type": "shared_account_projection",
+    "weight": 9,
+    "shared_items": 9
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FIA",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FIB",
+    "relation_type": "shared_account_projection",
+    "weight": 13,
+    "shared_items": 13
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 6,
+    "shared_items": 6
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 10,
+    "shared_items": 10
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FMIPA",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FF",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FIA",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FIB",
+    "relation_type": "shared_account_projection",
+    "weight": 23,
+    "shared_items": 23
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 11,
+    "shared_items": 11
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 13,
+    "shared_items": 13
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FH",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FIB",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FMIPA",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FIA",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 6,
+    "shared_items": 6
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FIK",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 23,
+    "shared_items": 23
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 16,
+    "shared_items": 16
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 6,
+    "shared_items": 6
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FMIPA",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 7,
+    "shared_items": 7
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_SIL",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIB",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 6,
+    "shared_items": 6
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_FISIP",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FIK",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_FK",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_FMIPA",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 5,
+    "shared_items": 5
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_SIL",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FISIP",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FK",
+    "target": "FAC_FKM",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FK",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FK",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  },
+  {
+    "source": "FAC_FK",
+    "target": "FAC_SIL",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FK",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FKM",
+    "target": "FAC_FMIPA",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FKM",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 3,
+    "shared_items": 3
+  },
+  {
+    "source": "FAC_FKM",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FKM",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FMIPA",
+    "target": "FAC_FPSIKOLOGI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FMIPA",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FPSIKOLOGI",
+    "target": "FAC_FT",
+    "relation_type": "shared_account_projection",
+    "weight": 1,
+    "shared_items": 1
+  },
+  {
+    "source": "FAC_FPSIKOLOGI",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FT",
+    "target": "FAC_SIL",
+    "relation_type": "shared_account_projection",
+    "weight": 2,
+    "shared_items": 2
+  },
+  {
+    "source": "FAC_FT",
+    "target": "FAC_VOKASI",
+    "relation_type": "shared_account_projection",
+    "weight": 4,
+    "shared_items": 4
+  }
+]
