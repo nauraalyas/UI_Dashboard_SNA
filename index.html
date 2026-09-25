@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNA Fakultas Universitas Indonesia</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="header-left">
+    <div class="header-icon">🕸️</div>
+    <div>
+      <h1>Social Network Analysis Fakultas Universitas Indonesia</h1>
+      <p class="subtitle">Jejaring antar-fakultas dibentuk dari <strong>shared account</strong> (akun monitoring yang sama) dan <strong>shared link</strong> (konten/URL yang sama) pada data monitoring media.</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="topbar-controls">
+      <div class="control-group">
+        <label for="dateFrom">Periode</label>
+        <div class="date-range-inputs">
+          <input type="date" id="dateFrom">
+          <span>–</span>
+          <input type="date" id="dateTo">
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="globalFacultySelect">Fakultas</label>
+        <select id="globalFacultySelect">
+          <option value="">Semua Fakultas</option>
+        </select>
+      </div>
+    </div>
+    <span id="validationBadge" class="badge badge-neutral">Memuat validasi…</span>
+  </div>
+</header>
+
+<main class="app-main">
+
+  <!-- EXECUTIVE SUMMARY (dari monitoring_clean.xlsx, mengikuti filter periode & fakultas di kanan atas) -->
+  <section class="panel exec-summary-panel">
+    <div class="panel-header">
+      <div>
+        <h2>Executive Summary</h2>
+        <p class="panel-subtitle" id="execSummarySubtitle">Periode &amp; fakultas aktif ditampilkan sesuai filter di kanan atas.</p>
+      </div>
+    </div>
+    <div class="exec-kpi-grid" id="execKpiGrid">
+      <div class="exec-kpi-card">
+        <div class="exec-kpi-icon" style="background:#eaf1ff;color:#2563eb;">💬</div>
+        <div><div class="exec-kpi-value" id="execTotalMentions">–</div><div class="exec-kpi-label">Total Mentions</div></div>
+      </div>
+      <div class="exec-kpi-card">
+        <div class="exec-kpi-icon" style="background:#eafbf1;color:#16a34a;">📶</div>
+        <div><div class="exec-kpi-value" id="execEngagement">–</div><div class="exec-kpi-label">Engagement</div></div>
+      </div>
+      <div class="exec-kpi-card">
+        <div class="exec-kpi-icon" style="background:#fef3e0;color:#b45309;">👥</div>
+        <div><div class="exec-kpi-value" id="execReach">–</div><div class="exec-kpi-label">Estimasi Reach</div></div>
+      </div>
+      <div class="exec-kpi-card">
+        <div class="exec-kpi-icon" style="background:#eafbf1;color:#16a34a;">🙂</div>
+        <div><div class="exec-kpi-value" id="execSentimentPos">–</div><div class="exec-kpi-label">Sentimen Positif</div></div>
+      </div>
+      <div class="exec-kpi-card">
+        <div class="exec-kpi-icon" style="background:#eafbf1;color:#16a34a;">🛡️</div>
+        <div><div class="exec-kpi-value" id="execStatus">–</div><div class="exec-kpi-label">Status Data</div></div>
+      </div>
+    </div>
+    <p class="panel-note" id="execSourceNote">Dihitung langsung dari <code>monitoring_clean.xlsx</code> (data mentah, bukan simulasi).</p>
+  </section>
+
+  <!-- KPI CARDS (ringkasan dataset / network) -->
+  <section class="panel">
+    <div class="panel-header"><h2>Ringkasan Dataset</h2></div>
+    <div class="kpi-grid" id="kpiGrid" aria-label="Ringkasan data">
+      <div class="kpi-card"><div class="kpi-icon">📄</div><div><div class="kpi-value" id="kpiRecords">–</div><div class="kpi-label">Total Records</div></div></div>
+      <div class="kpi-card"><div class="kpi-icon">🔗</div><div><div class="kpi-value" id="kpiContents">–</div><div class="kpi-label">Unique Contents</div></div></div>
+      <div class="kpi-card"><div class="kpi-icon">👤</div><div><div class="kpi-value" id="kpiAccounts">–</div><div class="kpi-label">Unique Accounts</div></div></div>
+      <div class="kpi-card"><div class="kpi-icon">🏛️</div><div><div class="kpi-value" id="kpiFaculties">–</div><div class="kpi-label">Number of Faculties</div></div></div>
+      <div class="kpi-card"><div class="kpi-icon">🧩</div><div><div class="kpi-value" id="kpiSharedAccountEdges">–</div><div class="kpi-label">Shared Account Connections</div></div></div>
+      <div class="kpi-card"><div class="kpi-icon">🌐</div><div><div class="kpi-value" id="kpiSharedLinkEdges">–</div><div class="kpi-label">Shared Link Connections</div></div></div>
+    </div>
+  </section>
+
+  <div class="content-grid">
+
+    <!-- LEFT: NETWORK -->
+    <section class="panel network-panel">
+      <div class="panel-header">
+        <div>
+          <h2>Peta Jejaring Fakultas</h2>
+          <p class="panel-subtitle" id="networkModeDesc">Fakultas terhubung jika memiliki akun monitoring yang sama.</p>
+        </div>
+        <div class="mode-tabs" role="tablist" aria-label="Jenis jejaring">
+          <button class="mode-tab active" data-mode="shared_account" role="tab" aria-selected="true">Shared Account</button>
+          <button class="mode-tab" data-mode="shared_link" role="tab" aria-selected="false">Shared Link</button>
+        </div>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group grow">
+          <label for="searchBox">Search faculty</label>
+          <input id="searchBox" type="text" placeholder="Cari fakultas… (mis. FEB)" autocomplete="off">
+        </div>
+        <div class="filter-group grow-2">
+          <label for="facultySelect">Faculty filter</label>
+          <select id="facultySelect" multiple></select>
+        </div>
+        <div class="filter-group">
+          <label for="weightSlider">Minimum shared items: <span id="weightSliderValue">1</span></label>
+          <input id="weightSlider" type="range" min="1" max="10" value="1" step="1">
+        </div>
+        <div class="filter-group">
+          <button id="resetFiltersBtn" class="btn-secondary">Reset filter</button>
+        </div>
+      </div>
+
+      <div class="graph-wrap">
+        <svg id="networkSvg"></svg>
+        <div class="graph-controls">
+          <button id="zoomInBtn" title="Zoom in">+</button>
+          <button id="zoomOutBtn" title="Zoom out">−</button>
+          <button id="zoomResetBtn" title="Reset view">⤢</button>
+        </div>
+        <div class="graph-legend" id="graphLegend">
+          <div class="legend-title">Legenda</div>
+          <div class="legend-row"><span class="legend-dot" style="background:#2563eb"></span> Ukuran node = weighted degree</div>
+          <div class="legend-row"><span class="legend-line"></span> Ketebalan garis = jumlah shared items</div>
+        </div>
+        <div id="graphTooltip" class="graph-tooltip" hidden></div>
+        <div id="graphEmptyState" class="graph-empty" hidden>Tidak ada koneksi pada threshold/filter ini.</div>
+      </div>
+    </section>
+
+    <!-- RIGHT: DETAIL PANEL -->
+    <aside class="panel detail-panel" id="detailPanel">
+      <div class="detail-empty" id="detailEmpty">
+        <div class="detail-empty-icon">🏛️</div>
+        <p>Klik salah satu fakultas (node) atau koneksi (garis) pada peta jejaring untuk melihat detail.</p>
+      </div>
+
+      <div id="detailFaculty" class="detail-content" hidden>
+        <div class="detail-header">
+          <h2 id="dfName">–</h2>
+          <span class="badge badge-blue" id="dfInitials">–</span>
+        </div>
+        <p class="detail-fullname" id="dfFullName"></p>
+        <div class="detail-stats-grid">
+          <div class="stat-box"><div class="stat-value" id="dfDegree">–</div><div class="stat-label">Degree</div></div>
+          <div class="stat-box"><div class="stat-value" id="dfWeightedDegree">–</div><div class="stat-label">Weighted Degree</div></div>
+          <div class="stat-box"><div class="stat-value" id="dfAccounts">–</div><div class="stat-label">Jumlah Akun</div></div>
+          <div class="stat-box"><div class="stat-value" id="dfLinks">–</div><div class="stat-label">Jumlah Link</div></div>
+          <div class="stat-box"><div class="stat-value" id="dfRecords">–</div><div class="stat-label">Jumlah Record</div></div>
+          <div class="stat-box"><div class="stat-value" id="dfContents">–</div><div class="stat-label">Jumlah Content</div></div>
+        </div>
+
+        <h3 class="detail-section-title">Mentions &amp; Sentimen <span class="detail-section-hint">(mengikuti periode di kanan atas)</span></h3>
+        <div class="mentions-box">
+          <div class="mentions-total">
+            <div class="stat-value" id="dfMentionsTotal">–</div>
+            <div class="stat-label">Total Mentions (menyebut fakultas ini)</div>
+          </div>
+          <div class="sentiment-bar" id="dfSentimentBar"></div>
+          <div class="sentiment-legend" id="dfSentimentLegend"></div>
+        </div>
+
+        <h3 class="detail-section-title">Daftar Koneksi Fakultas</h3>
+        <div class="connection-list" id="dfConnectionList"></div>
+      </div>
+
+      <div id="detailEdge" class="detail-content" hidden>
+        <div class="detail-header">
+          <h2 id="deTitle">–</h2>
+        </div>
+        <p class="detail-fullname" id="deSubtitle"></p>
+        <div class="detail-stats-grid two-col">
+          <div class="stat-box"><div class="stat-value" id="deWeight">–</div><div class="stat-label" id="deWeightLabel">Shared items</div></div>
+          <div class="stat-box"><div class="stat-value" id="deType">–</div><div class="stat-label">Relation type</div></div>
+        </div>
+        <h3 class="detail-section-title" id="deListTitle">Shared items</h3>
+        <div class="shared-items-list" id="deItemsList"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- METRICS -->
+  <section class="panel">
+    <div class="panel-header"><h2>Network Metrics</h2></div>
+    <p class="panel-note">Metrik dihitung langsung dari edge/node yang sedang aktif (mengikuti tab &amp; filter di atas). Centrality adalah ukuran struktural dalam jejaring — <strong>bukan</strong> ukuran kualitas, performa, atau "kepentingan" fakultas.</p>
+    <div class="metrics-grid" id="metricsGrid">
+      <div class="metric-box"><div class="metric-value" id="mNodes">–</div><div class="metric-label">Nodes</div></div>
+      <div class="metric-box"><div class="metric-value" id="mEdges">–</div><div class="metric-label">Edges</div></div>
+      <div class="metric-box"><div class="metric-value" id="mDensity">–</div><div class="metric-label">Density</div></div>
+      <div class="metric-box"><div class="metric-value" id="mAvgDegree">–</div><div class="metric-label">Avg Degree</div></div>
+      <div class="metric-box"><div class="metric-value" id="mAvgWDegree">–</div><div class="metric-label">Avg Weighted Degree</div></div>
+    </div>
+    <div class="table-scroll">
+      <table class="centrality-table" id="centralityTable">
+        <thead>
+          <tr>
+            <th>Fakultas</th>
+            <th>Degree</th>
+            <th>Weighted Degree</th>
+            <th>Degree Centrality</th>
+            <th>Betweenness Centrality</th>
+            <th>Closeness Centrality</th>
+          </tr>
+        </thead>
+        <tbody id="centralityTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- INTERACTION NETWORK NOTICE -->
+  <section class="panel">
+    <div class="panel-header"><h2>Interaction Network</h2></div>
+    <div class="notice-box">
+      <span class="notice-icon">ℹ️</span>
+      <p><strong>No interaction data available.</strong> File <code>edges_interaction.json</code> pada dataset ini kosong. Shared-account bukan interaksi langsung antar-fakultas, sehingga fitur ini tidak ditampilkan sebagai jejaring aktif untuk menghindari kesimpulan yang tidak didukung data.</p>
+    </div>
+  </section>
+
+  <!-- TABLE VIEW -->
+  <section class="panel">
+    <div class="panel-header">
+      <div>
+        <h2>Tabel Hubungan Fakultas</h2>
+        <p class="panel-subtitle">Mengikuti jenis jejaring &amp; filter yang aktif di atas.</p>
+      </div>
+      <div class="filter-group">
+        <input id="tableSearch" type="text" placeholder="Cari di tabel…" autocomplete="off">
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table class="edge-table" id="edgeTable">
+        <thead>
+          <tr>
+            <th data-key="a">Faculty A ▾</th>
+            <th data-key="b">Faculty B ▾</th>
+            <th data-key="shared_items" class="num">Shared Items ▾</th>
+            <th data-key="weight" class="num">Weight ▾</th>
+          </tr>
+        </thead>
+        <tbody id="edgeTableBody"></tbody>
+      </table>
+    </div>
+    <div class="pagination" id="tablePagination"></div>
+  </section>
+
+  <!-- DATA & METHODOLOGY -->
+  <section class="panel">
+    <div class="panel-header"><h2>Data &amp; Methodology</h2></div>
+    <div class="methodology-grid">
+      <div class="method-col">
+        <h3>Ringkasan Data</h3>
+        <ul class="method-list" id="methodSummaryList">
+          <li><span id="methRecords">–</span> monitoring records</li>
+          <li><span id="methFaculties">–</span> faculties</li>
+          <li><span id="methAccounts">–</span> unique accounts</li>
+          <li><span id="methContents">–</span> unique contents</li>
+        </ul>
+      </div>
+      <div class="method-col">
+        <h3>Network 1 — Shared Account</h3>
+        <p>Faculty → Account → Faculty, diproyeksikan menjadi Faculty → Faculty. <code>weight</code> = jumlah akun monitoring yang sama antara dua fakultas.</p>
+      </div>
+      <div class="method-col">
+        <h3>Network 2 — Shared Link</h3>
+        <p>Faculty → Link → Faculty, diproyeksikan menjadi Faculty → Faculty. <code>weight</code> = jumlah URL/konten yang sama antara dua fakultas.</p>
+      </div>
+      <div class="method-col">
+        <h3>Preprocessing</h3>
+        <p>Normalisasi data → pemetaan fakultas → deduplikasi record.</p>
+      </div>
+      <div class="method-col">
+        <h3>Executive Summary (Mentions/Engagement/Reach/Sentimen)</h3>
+        <p>Dihitung langsung dari <code>monitoring_clean.xlsx</code> (909 baris), mengikuti
+        filter periode &amp; fakultas yang dipilih di kanan atas. "Mentions" dihitung apa
+        adanya (baris yang menyebut fakultas terkait), tanpa syarat ada reply/author lain.</p>
+      </div>
+    </div>
+    <div class="notice-box notice-amber">
+      <span class="notice-icon">⚠️</span>
+      <p>Satu konten dapat muncul pada beberapa fakultas. Hal ini <strong>dipertahankan (tidak dideduplikasi lintas fakultas)</strong> karena merupakan dasar pembentukan shared-link network.</p>
+    </div>
+  </section>
+
+  <!-- VALIDATION -->
+  <section class="panel">
+    <div class="panel-header"><h2>Validation Report</h2></div>
+    <div class="validation-grid" id="validationGrid"></div>
+  </section>
+
+  <footer class="app-footer">
+    Dashboard eksplorasi data SNA — bukan alat pemeringkatan atau kesimpulan normatif tentang fakultas.
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
